@@ -1,0 +1,4 @@
+$item=TestItem
+REMOVE $item[batchmode=true];itemtype(code)[unique=true]
+;$item
+
