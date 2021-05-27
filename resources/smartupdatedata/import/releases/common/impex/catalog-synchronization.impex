@@ -1,0 +1,15 @@
+$sourceBAMPOSProductCatalog=bamposProductCatalog
+$targetBAMB2CProductCatalog=bamb2cProductCatalog
+$targetBAMB2BProductCatalog=bamb2bProductCatalog
+
+$languages=en,fr
+
+$passwordEncoding=md5
+$defaultPassword=1234
+$setPassword=@password[translator=de.hybris.platform.impex.jalo.translators.ConvertPlaintextToEncodedUserPasswordTranslator][default='$passwordEncoding:$defaultPassword']
+
+
+insert_update CatalogVersionSyncJob;code[unique=true]                                           ;sourceVersion(catalog(id),version)[forceWrite=false];targetVersion(catalog(id),version)[forceWrite=false];syncLanguages(isocode);rootTypes(code)[mode=append]         ;sessionUser(uid)
+                                   ;sync bamposProductCatalog:Staged->bamb2bProductCatalog:Stage;$sourceBAMPOSProductCatalog:Staged                  ;$targetBAMB2BProductCatalog:Staged                  ;$languages            ;Category,Product,Media,MediaContainer;admin
+                                   ;sync bamposProductCatalog:Staged->bamb2cProductCatalog:Stage;$sourceBAMPOSProductCatalog:Staged                  ;$targetBAMB2CProductCatalog:Staged                  ;$languages            ;Category,Product,Media,MediaContainer;admin
+                              

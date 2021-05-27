@@ -1,0 +1,22 @@
+/*
+ * [y] hybris Platform
+ *
+ * Copyright (c) 2000-2021 SAP SE
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of SAP
+ * Hybris ("Confidential Information"). You shall not disclose such
+ * Confidential Information and shall use it only in accordance with the
+ * terms of the license agreement you entered into with SAP Hybris.
+ */
+package com.nearyouconsulting.smartupdatedata.service;
+
+import de.hybris.platform.util.JspContext;
+
+import com.nearyouconsulting.smartupdatedata.job.GlobalJobExecutionResult;
+
+
+public interface SetupCatalogSyncJobService
+{
+	GlobalJobExecutionResult runAllCatalogSyncJobs(JspContext jspc);
+}
